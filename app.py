@@ -15,6 +15,16 @@ df_dbh_grouped = pd.DataFrame(
     trees_df.groupby(['dbh']).count()['tree_id'])
 df_dbh_grouped.columns = ['tree_count']
 
+owners = st.sidebar.multiselect('Tree Owner Filter',
+                                trees_df['caretaker'].unique())
+
+if owners:
+    trees_df = trees_df[trees_df['caretaker'].isin(owners)]
+
+df_dbh_grouped = pd.DataFrame(
+    trees_df.groupby(['dbh']).count()['tree_id'])
+df_dbh_grouped.columns = ['tree_count']
+
 col1, col2, col3 = st.columns(3)
 with col1:
     st.write('Column 1')

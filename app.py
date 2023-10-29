@@ -2,8 +2,17 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from st_pages import show_pages, Page
 
 st.set_page_config(layout='wide')
+
+show_pages(
+    [
+        Page('app.py', 'Home'),
+        Page('pages/tabs.py', 'Tab Layout'),
+        Page('pages/map.py', 'Map Layout')
+    ]
+)
 
 st.markdown('สวัสดี! **Streamlit**')
 st.title('Columns of San Francisco tree')

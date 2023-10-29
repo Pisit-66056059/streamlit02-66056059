@@ -37,9 +37,10 @@ with col3:
     st.area_chart(df_dbh_grouped)
 
 st.title('แปลผล')
-st.write("""ส่วนใหญ่ของต้นไม้ใน San Fran มีเส้นผ่านศูนย์กลาง 3' (2,710 ต้น)""")
-# st.write('ส่วนใหญ่ของต้นไม้ใน San Fran มีเส้นผ่านศูนย์กลาง 3',trees_df.groupby(['dbh']).count()['tree_id'])
+# st.write("""ส่วนใหญ่ของต้นไม้ใน San Fran มีเส้นผ่านศูนย์กลาง 3' (2,710 ต้น)""")
+st.write('ส่วนใหญ่ของต้นไม้ใน San Fran มีเส้นผ่านศูนย์กลาง ', trees_df.groupby(['dbh']).count()['tree_id'].idxmax(),
+         'นิ้ว ',
+         trees_df.groupby(['dbh']).count()['tree_id'].max(), 'ต้น')
 st.caption('กราฟ แสดงจำนวนต้นไม้ จัดกลุ่มตามเส้นผ่าศูนย์กลาง')
 
 st.divider()  # ขีดเส้นขั้น
-
